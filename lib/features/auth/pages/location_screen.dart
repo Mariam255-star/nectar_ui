@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:nectar_ui/core/constants/app_images.dart';
+import 'package:nectar_ui/core/functions/navigation.dart';
 import 'package:nectar_ui/core/utils/colors.dart';
+import 'package:nectar_ui/features/home/home_screen.dart';
 
 class LocationScreen extends StatelessWidget {
   const LocationScreen({super.key});
@@ -58,14 +60,22 @@ class LocationScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 30),
-            Container(
-              width: double.infinity,
-              height: 50,
-              decoration: BoxDecoration(
-                color: Appcolor.primarycolor,
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Center(
+            
+            // هنا الزرار الجديد بدل الـ Container
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Appcolor.primarycolor,
+                  minimumSize: const Size(double.infinity, 50),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
+                onPressed: () {
+                
+                    pushWithReplacement(context, const HomeScreen());
+                },
                 child: Text(
                   'Submit',
                   style: TextStyle(
