@@ -38,5 +38,19 @@ ProductModel(
  image: 'assets/images/Apple.png',
   price: 3.5, 
  quantity: '1 Kg'),
+ ProductModel(
+  id: 2,
+  name: 'Banana',
+ image: 'assets/images/banan.png',
+  price: 2.0, 
+ quantity: '1 Kg'),
+
+ ProductModel(
+  id: 2,
+  name: 'Apple',
+ image: 'assets/images/Apple.png',
+  price: 3.5, 
+ quantity: '1 Kg'),
+
 
 ];

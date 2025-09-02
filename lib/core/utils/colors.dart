@@ -7,6 +7,7 @@ class Appcolor{
  static const Color whitecolor  = Color(0xFFFFFFFF);
  static const Color bordecolor = Color(0xFFE2E2E2);
  static const Color textwelcomepagecolor = Color(0xFFFCFCFCB2);
+ static const Color stariconcolor = Color(0xFFF3603F);
 
 
 
