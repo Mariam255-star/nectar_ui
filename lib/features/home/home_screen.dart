@@ -4,6 +4,8 @@ import 'package:nectar_ui/core/constants/app_images.dart';
 import 'package:nectar_ui/core/functions/navigation.dart';
 import 'package:nectar_ui/core/utils/colors.dart';
 import 'package:nectar_ui/core/utils/text_style.dart';
+import 'package:nectar_ui/features/home/cart_page.dart';
+import 'package:nectar_ui/features/home/explore_page.dart';
 import 'package:nectar_ui/features/home/models/product_model.dart';
 import 'package:nectar_ui/features/home/models/produt_details.dart';
 
@@ -16,14 +18,13 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         surfaceTintColor: Colors.transparent,
         backgroundColor: Appcolor.whitecolor,
-        title: Center(
-          child: SvgPicture.asset(
-            'assets/images/logo.svg',
-            height: 50,
-            colorFilter: ColorFilter.mode(
-              Appcolor.primarycolor,
-              BlendMode.srcIn,
-            ),
+        centerTitle: true, // خليت اللوجو يتوسّط أحسن من Center()
+        title: SvgPicture.asset(
+          'assets/images/logo.svg',
+          height: 50,
+          colorFilter: ColorFilter.mode(
+            Appcolor.primarycolor,
+            BlendMode.srcIn,
           ),
         ),
       ),
@@ -31,6 +32,7 @@ class HomeScreen extends StatelessWidget {
         padding: const EdgeInsets.all(16),
         child: Column(
           children: [
+            // القسم الأول
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -55,7 +57,7 @@ class HomeScreen extends StatelessWidget {
               height: 250,
               child: ListView.separated(
                 scrollDirection: Axis.horizontal,
-                itemCount: produts.length,
+                itemCount: produts.length, // تأكد إنها مكتوبة products لو عندك كده
                 separatorBuilder: (context, index) =>
                     const SizedBox(width: 12),
                 itemBuilder: (context, index) {
@@ -115,7 +117,8 @@ class HomeScreen extends StatelessWidget {
                                       borderRadius:
                                           BorderRadius.circular(17),
                                       onTap: () {
-                                        pushTo(context, const ProdutDetails());
+                                        pushTo(
+                                            context, const ProdutDetails());
                                       },
                                       child: Container(
                                         padding: const EdgeInsets.all(10),
@@ -240,6 +243,13 @@ class HomeScreen extends StatelessWidget {
         type: BottomNavigationBarType.fixed,
         selectedItemColor: Appcolor.primarycolor,
         unselectedItemColor: Colors.black,
+        onTap: (index) {
+          if (index == 1) {
+            pushTo(context, const ExplorePage());
+          } else if (index == 2) {
+            pushTo(context, const CartPage());
+          }
+        },
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.storefront),
